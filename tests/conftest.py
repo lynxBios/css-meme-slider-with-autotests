@@ -1,0 +1,27 @@
+import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+@pytest.fixture(scope='function')
+    # Fixture for creating a browser instance.
+    # scope="function" means that the browser will be opened fresh for each test.
+
+def browser():
+    # 1. Setup: create Service object
+
+    print("\nStarting browser for test...")
+    service = Service(ChromeDriverManager() .install())
+
+    # 2. Initialization: start browser
+    # Manager will automatically find, download and set the driver path
+    driver = webdriver.Chrome(service=service)
+    driver.implicitly_wait(10)
+
+    # 3. Hand over control to test
+    # Here the test "takes" the browser and performs its actions
+    yield driver
+
+    # 4. Teardown: close browser
+    driver.quit()
+    print(' Browser closed')
