@@ -12,7 +12,7 @@ def browser():
     # 1. Setup: create Service object
 
     print("\nStarting browser for test...")
-    service = Service(ChromeDriverManager() .install())
+    service = Service(ChromeDriverManager().install())
     options = Options()
 
     options.add_argument('--headless')  # Run without graphical window

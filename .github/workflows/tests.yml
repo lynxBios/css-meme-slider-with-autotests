@@ -22,6 +22,12 @@ jobs:
         run: |
           pip install pytest selenium webdriver-manager
 
+      - name: Start local server
+        run: |
+          cd docs
+          python -m http.server 8000 &
+          sleep 3
+
       - name: Run tests
         run: pytest
         
