@@ -22,8 +22,7 @@ def browser():
 
     # 2. Initialization: start browser
     # Manager will automatically find, download and set the driver path
-    driver = webdriver.Chrome(service=service, options=options)
-    driver.implicitly_wait(10)
+    driver = webdriver.Chrome(service=service, options=options)    
 
     # 3. Hand over control to test
     # Here the test "takes" the browser and performs its actions
